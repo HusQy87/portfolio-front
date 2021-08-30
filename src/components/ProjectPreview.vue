@@ -29,6 +29,8 @@
 import {defineComponent} from "@vue/composition-api"
 import Project from "@/models/Project";
 import {AxiosResponse} from "axios";
+import {ErrorResponse, instanceOfProject} from "@/models/response";
+
 export default defineComponent({
   name: "ProjectPreview",
   data() {
@@ -38,7 +40,13 @@ export default defineComponent({
   },
 
   mounted() {
-    this.$axios.get<any,AxiosResponse<Project>>('/projects/random').then(r => this.project = r.data)
+    this.$axios.get<any,AxiosResponse<Project | ErrorResponse>>('/projects/random').then(r => {
+      if (instanceOfProject(r.data)){
+        this.project = r.data
+      }else{
+      }
+
+        })
   }
 })
 </script>

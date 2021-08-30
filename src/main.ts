@@ -5,7 +5,7 @@ import store from './store'
 import "@/assets/app.scss"
 import "bootstrap/dist/js/bootstrap"
 import axios, {AxiosStatic} from "axios";
-import * as dotenv from 'dotenv'
+
 import {library} from "@fortawesome/fontawesome-svg-core";
 import {faFacebook, faFontAwesome, faLinkedin} from "@fortawesome/free-brands-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
@@ -24,7 +24,7 @@ let  env:Env;
 if (environmentHelper.isDevelopment){
   env = {apiUrl: 'https://localhost:8000/api', url: 'https://localhost:8000'}
 }else {
-  env = {apiUrl: 'https://localhost:8000/api', url: 'https://localhost:8000'}
+  env = {apiUrl: 'https://portfolio.galcera.ovh/api', url: 'https://portfolio.galcera.ovh'}
 
 }
 axios.defaults.baseURL = env.apiUrl
